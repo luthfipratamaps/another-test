@@ -1,0 +1,22 @@
+{
+    "name": "John Doe",
+    "age": 30,
+    "email": "johndoe@example.com",
+    "address": {
+      "street": "123 Main Street",
+      "city": "Anytown",
+      "country": "Exampleland"
+    },
+    "phoneNumbers": [
+      {
+        "type": "home",
+        "number": "123-456-7890"
+      },
+      {
+        "type": "work",
+        "number": "987-654-3210"
+      }
+    ],
+    "hobbies": ["reading", "traveling", "coding"]
+  }
+  

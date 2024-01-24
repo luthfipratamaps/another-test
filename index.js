@@ -40,7 +40,26 @@ app.get('/hex', (req, res) => {
         res.sendFile(filePath);
     });
 });
-  
+
+app.get('/bin', (req, res) => {
+    const filePath = path.join(__dirname, 'stm32f103RET6_gd32_blink.bin');
+    const fileName = 'stm32f103RET6_gd32_blink.bin'; // The file name to be sent
+    
+    // Check if the file exists
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            res.status(404).send('File not found');
+            return;
+        }
+        
+        // Set Content-Disposition header to suggest the browser to download the file with the same name
+        res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+        
+        // Send the file
+        res.sendFile(filePath);
+    });
+});
+
 // Start the server on port 3000 (you can use any port you want)
 const PORT = 3000;
 app.listen(PORT, () => {
